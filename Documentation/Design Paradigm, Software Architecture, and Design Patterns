@@ -1,10 +1,10 @@
 Design Paradigm, Software Architecture, and Design Patterns
 
 Identify the design paradigm you (i.e., the team) chose for your prototype and explain why you chose that paradigm. (250-350 words)
-We chose object-oriented design as our design paradigm because the language we chose (JavaScript) is object-oriented and as a group we like to have many classes for different
-purposes as it makes writing code, debugging, and splitting up tasks easier and less likely to step on other people's toes. Additionally, the way we like to plan out our
+We chose object-oriented design as our design paradigm because the language we chose (JavaScript) is object-oriented. As a group we like to have many classes for different
+purposes as it makes writing code, debugging, and splitting up tasks easier and less as likely for us to overwrite each other's work. Additionally, the way we like to plan out our
 projects is to think of classes we will need and then begin thinking of the methods that will belong to those classes, which is perfect for object-oriented design.
-We also like to begin with an examination of real world "things" like in object-oriented design.
+We also like to begin with an examination of real world "things" like in object-oriented design. By breaking down a large project into files and then the purpose of those files into classes, this can help us create methods targeted for a specific purpose or function. By working on such a small portion of our project at a time we can make sure that if there is a problem with our program, the problem will not force us to make any major changes (re-writing large sections of code). Instead, we can easily modify a method or two to solve these issues. An additional benefit in working in this way, would be the opportunity for collaboration within the group. By breaking down the project into files, classes and methods, each team member has an opportunity to contribute to the final project. Those working within a same file will be able to work amongst each other to understand how each class/method interacts within the file and that file's interaction within the project.
 
 
 Within the context of your chosen design paradigm, describe the software architecture of your prototype.
