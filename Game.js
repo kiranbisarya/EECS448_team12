@@ -17,10 +17,11 @@ if(!gameOver(chosenRow, chosenCol))
     {
         dropChip(chosenRow, chosenCol);
         currPlayer++;
+        turn++;
     }
     else
     {
-        document.querySelector("#msg").innerText = "Invalid placement, try again";
+        document.querySelector("#msg").innerText = "Invalid placement, try again player " + currPlayer;
     }
 }
 
@@ -47,13 +48,12 @@ if(gameOver(chosenRow, chosenCol))
 }
 else
 {
-    turn++;
     if(currPlayer%2==0)
     {
-        document.querySelector("#msg").innerText = "There is still no winner. Next up is player 1 for turn number " + turn;
+        document.querySelector("#msg").innerText = "Next up is player 1 for turn number " + turn;
     }
     else
     {
-        document.querySelector("#msg").innerText = "There is still no winner. Next up is player 1 for turn number " + turn;
+        document.querySelector("#msg").innerText = "Next up is player 2 for turn number " + turn;
     }
 }
