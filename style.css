@@ -1,0 +1,44 @@
+*{ 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1
+{
+    text-align: center;
+}
+
+.game
+{
+    position: absolute;
+    top: 10rem;
+    left: 50%;
+    transform: translate(-50%);
+    width: 700px;
+    height: 600px;
+    background: #0c8eda;
+    border: 3px solid brown;
+    padding: 1.5rem;
+}
+
+.slot
+{
+    width: 90px;
+    height: 90px;
+    background: white;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.reset
+{
+    position: absolute;
+    top: 95vh;
+    left: 50%;
+    transform: translate(-50%);
+    border: 1px solid black;
+    width: 10rem;
+    text-align:center;
+    cursor: pointer;
+}
