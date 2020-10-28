@@ -12,7 +12,7 @@
     let board = [[]];
     let cols = 7;
     let rows = 6;
-    let activeGame = true;
+    let gameActive = true;
 
     /**
 	* @description Sets up the board and places chips may drop
@@ -30,11 +30,11 @@
 	* @description Determines player turn IF the game is not over
     **/
 
-    if(!gameOver(chosenRow, chosenCol))
+    if(!gameOver())
     {
         if(validChoice(chosenRow, chosenCol))
         {
-            dropChip(chosenRow, chosenCol);
+            dropChip(chosenCol);
             currPlayer++;
             turn++;
         }
@@ -45,14 +45,30 @@
     }
 
     /**
+	* @description Checks for a win which determines if game is over then returns true or false
+    **/
+   function gameOver()
+   {
+        if(checkForHorzWin()==1 || checkForHorzWin()==2 || checkForVertWin()==1 || checkForVertWin()==2 || checkForDiagnol_LtR_Win()==1 || checkForDiagnol_LtR_Win()==2 || 
+        checkForDiagnol_RtL_Win()==1 || checkForDiagnol_RtL_Win()==2)
+        {
+            gameActive = false;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+   }
+
+    /**
 	* @description Chip placement
     **/
-
     function dropChip(chosenCol)
     {
         //board[chosenRow][chosenCol] = 1;
         
-        if(activeGame == true)
+        if(gameActive == true)
         {
             if(board[5][chosenCol] != 0) 
             {
@@ -90,7 +106,7 @@
 
 
     /**
-	* @description Updates board with corresponding chip color and checks for win
+	* @description Updates board with corresponding chip color
     **/
    
     function updateBoard()
@@ -204,7 +220,7 @@
    
     function validChoice(chosenRow, chosenCol)
     {
-        if(chosenRow>=0 && chosenRow<7 && chosenRow>=0 && chosenRow<7 && board[chosenRow][chosenCol]==0)
+        if(chosenCol>=0 && chosenCol<7 && board[chosenRow][chosenCol]==0 && (chosenRow==0 || board[chosenRow-1][chosenCol]!=0))
         {
             return true;
         }
@@ -218,9 +234,16 @@
 	* @description If the game is over, then determine who is the winner and who is the loser
     **/
 
-    if(gameOver(chosenRow, chosenCol))
+    if(gameOver())
     {
-
+        if(currPlayer%2==0)
+        {
+            document.querySelector("#msg").innerText = "Congratulations! Player 2 has won on turn number " + turn;
+        }
+        else
+        {
+            document.querySelector("#msg").innerText = "Congratulations! Player 1 has won on turn number " + turn;
+        }
     }
 
     else
