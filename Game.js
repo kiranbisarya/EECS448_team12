@@ -7,11 +7,12 @@
 	* @param turn {number} The turns indicate which player will play
 	**/
 
-    let currPlayer = 0;
+    let currPlayer = 1; //1 for red chip player, 2 for yellow chip player
     let turn = 0;
     let board = [[]];
-    let cols = 6;
-    let rows = 7;
+    let cols = 7;
+    let rows = 6;
+    let activeGame = true;
 
     /**
 	* @description Sets up the board and places chips may drop
@@ -47,18 +48,163 @@
 	* @description Chip placement
     **/
 
-    dropChip(chosenRow, chosenCol)
+    function dropChip(chosenCol)
     {
-        board[chosenRow][chosenCol] = 1;
+        //board[chosenRow][chosenCol] = 1;
+        
+        if(activeGame == true)
+        {
+            if(board[5][chosenCol] != 0) 
+            {
+                //Output that column is full
+            }
+    
+            if (currPlayer == 1)
+            {
+                for(let row=0; row<7; row++)
+                {
+                    if(board[row][chosenCol] == 0) 
+                    {
+                        board[row][chosenCol] == 1;
+                        break;
+                    }
+                }
+                currPlayer = 2;
+            }
+            else 
+            {
+                for(let row=0; row<7; row++)
+                {
+                    if(board[row][chosenCol] == 0) 
+                    {
+                        board[row][chosenCol] == 2;
+                        break;
+                    }
+                }
+                currPlayer = 1;
+            }
+            updateBoard();
+        }
+        
+    }
+
+
+    /**
+	* @description Updates board with corresponding chip color and checks for win
+    **/
+   
+    function updateBoard()
+    {
+        if(gameActive == true)
+        {
+
+        }
+    }
+
+    /**
+	* @description Checks if a player has a horizontal win and returns the player that won (1 or 2)
+    **/
+
+    function checkForHorzWin()
+    {
+        for (let i=1; i<=2; i++) 
+        {
+            for (let col = 0; col < 7; col ++) 
+            {
+                for (let row = 0; row < 6; row ++) 
+                {
+                    if (board[row][col] == i) 
+                    {
+                        if ((board[row][col+1] == i) && (board[row][col+2] == i) && (board[row][col+3] == i)) 
+                        {
+                            return i;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    /**
+	* @description Checks if a player has a vertical win and returns the player that won (1 or 2)
+    **/
+
+    function checkForVertWin() 
+    {
+        for (let i=1; i<=2; i++) 
+        {
+            for (let col = 0; col < 7; col++) 
+            {
+                for (let row = 0; row < 6; row++) 
+                {
+                    if (board[row][col] == i) 
+                    {
+                        if ((board[row+1][col] == i) && (board[row+2][col] == i) && (board[row+3][col] == i)) 
+                        {
+                            return i;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    
+    /**
+	* @description Checks if a player has a diagonal left to right win and returns the player that won (1 or 2)
+    **/    
+
+    function checkForDiagnol_LtR_Win() 
+    {
+        for (let i=1; i<=2; i++) 
+        {
+            for (let col = 0; col < 7; col++) 
+            {
+                for (let row = 0; row < 6; row++) 
+                {
+                    if (board[row][col] == i) 
+                    {
+                        if ((board[row-1][col+1] == i) && (board[row-2][col+2] == i) && (board[row-3][col+3] == i)) 
+                        {
+                            return i;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    /**
+	* @description Checks if a player has a diagonal right to left win and returns the player that won (1 or 2)
+    **/  
+    function checkForDiagnol_RtL_Win() 
+    {
+        for (let i=1; i<=2; i++) 
+        {
+            for (let col = 0; col < 7; col++) 
+            {
+                for (let row = 0; row < 6; row++) 
+                {
+                    if (board[row][col] == i) 
+                    {
+                        if ((board[row+1][col+1] == i) && (board[row+2][col+2] == i) && (board[row+3][col+3] == i)) 
+                        {
+                            return i;
+                        }   
+                    }
+                }
+            }
+        }
     }
 
     /**
 	* @description Verify that chip placement is valid via bounds checking
     **/
    
-    validChoice(chosenRow, chosenCol)
+    function validChoice(chosenRow, chosenCol)
     {
-        if(chosenRow>=0 && chosenRow<7 && chosenRow>=0 && chosenRow<6 && board[chosenRow][chosenCol]==0)
+        if(chosenRow>=0 && chosenRow<7 && chosenRow>=0 && chosenRow<7 && board[chosenRow][chosenCol]==0)
         {
             return true;
         }
