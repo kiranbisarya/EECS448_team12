@@ -70,10 +70,10 @@
         
         if(gameActive == true)
         {
-            if(board[5][chosenCol] != 0) 
+            /*if(board[5][chosenCol] != 0) 
             {
                 //Output that column is full
-            }
+            }*/
     
             if (currPlayer == 1)
             {
@@ -81,11 +81,12 @@
                 {
                     if(board[row][chosenCol] == 0) 
                     {
-                        board[row][chosenCol] == 1;
+                        board[row][chosenCol] = 1;
                         break;
                     }
                 }
                 currPlayer = 2;
+                document.getElementById("colorTurn").innerHTML="Red Turn";
             }
             else 
             {
@@ -93,11 +94,12 @@
                 {
                     if(board[row][chosenCol] == 0) 
                     {
-                        board[row][chosenCol] == 2;
+                        board[row][chosenCol] = 2;
                         break;
                     }
                 }
                 currPlayer = 1;
+                document.getElementById("colorTurn").innerHTML="Yellow Turn";
             }
             updateBoard();
         }
@@ -113,7 +115,24 @@
     {
         if(gameActive == true)
         {
-
+            for (let row = 0; row < 6; row++) 
+            {
+                for (let col = 0; col < 7; col++) 
+                {
+                    if (board[row][col]==0) 
+                    {
+                        document.getElementById("slot"+row+col).style.backgroundColor="#FFFFFF";
+                    } 
+                    else if (board[row][col]==1) //1 for yellow
+                    { 
+                        document.getElementById("slot"+row+col).style.backgroundColor="#FFFF00";  
+                    } 
+                    else if (board[row][col]==2) //2 for red
+                    { 
+                        document.getElementById("slot"+row+col).style.backgroundColor="#FF0000";  
+                    }
+                }
+            }
         }
     }
 
