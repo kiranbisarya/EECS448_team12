@@ -66,10 +66,35 @@
     **/
     function dropChip(chosenCol)
     {
+        let chosenRow=0;
         //board[chosenRow][chosenCol] = 1;
-        
+
         if(gameActive == true)
         {
+            if(board[0][chosenCol]==0)
+            {
+                chosenRow=0;
+            }
+            else if(board[1][chosenCol]==0)
+            {
+                chosenRow=1;
+            }
+            else if(board[2][chosenCol]==0)
+            {
+                chosenRow=2;
+            }
+            else if(board[3][chosenCol]==0)
+            {
+                chosenRow=3;
+            }
+            else if(board[4][chosenCol]==0)
+            {
+                chosenRow=4;
+            }
+            else if(board[5][chosenCol]==0)
+            {
+                chosenRow=5;
+            }
             // if(board[5][chosenCol] != 0) 
             // {
             //     //Output that column is full
@@ -77,27 +102,27 @@
     
             if (currPlayer == 1)
             {
-                for(let row=0; row<7; row++)
-                {
-                    if(board[row][chosenCol] == 0) 
+                // for(let row=0; row<7; row++)
+                // {
+                    if(board[chosenRow][chosenCol] == 0) 
                     {
-                        board[row][chosenCol] = 1;
-                        break;
+                        board[chosenRow][chosenCol] = 1;
+                        // break;
                     }
-                }
+                // }
                 document.getElementById("colorTurn").innerHTML="Red Turn";
                 currPlayer = 2;
             }
             else 
             {
-                for(let row=0; row<7; row++)
-                {
-                    if(board[row][chosenCol] == 0) 
+                // for(let row=0; row<7; row++)
+                // {
+                    if(board[chosenRow][chosenCol] == 0) 
                     {
-                        board[row][chosenCol] = 2;
-                        break;
+                        board[chosenRow][chosenCol] = 2;
+                        // break;
                     }
-                }
+                // }
                 currPlayer = 1;
                 document.getElementById("colorTurn").innerHTML="Yellow Turn";
             }
