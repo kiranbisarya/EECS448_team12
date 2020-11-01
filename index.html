@@ -12,71 +12,73 @@
     
     <div id="colorTurn">Yellow Turn</div>
 
+    <div id="output">Output</div>
+
     <h3 class="player-turn"></h3>
 
-    <div class="game">
-        <table>
-            <tr>
-                <td class="slot" id="slot00" onclick="dropChip(0)"></td>
-                <td class="slot" id="slot01" onclick="dropChip(1)"></td>
-                <td class="slot" id="slot02" onclick="dropChip(2)"></td>
-                <td class="slot" id="slot03" onclick="dropChip(3)"></td>
-                <td class="slot" id="slot04" onclick="dropChip(4)"></td>
-                <td class="slot" id="slot05" onclick="dropChip(5)"></td>
-                <td class="slot" id="slot06" onclick="dropChip(6)"></td>
-            </tr>
-            <tr>
-                <td class="slot" id="slot10" onclick="dropChip(0)"></td>
-                <td class="slot" id="slot11" onclick="dropChip(1)"></td>
-                <td class="slot" id="slot12" onclick="dropChip(2)"></td>
-                <td class="slot" id="slot13" onclick="dropChip(3)"></td>
-                <td class="slot" id="slot14" onclick="dropChip(4)"></td>
-                <td class="slot" id="slot15" onclick="dropChip(5)"></td>
-                <td class="slot" id="slot16" onclick="dropChip(6)"></td>
-            </tr>
-            <tr>
-                <td class="slot" id="slot20" onclick="dropChip(0)"></td>
-                <td class="slot" id="slot21" onclick="dropChip(1)"></td>
-                <td class="slot" id="slot22" onclick="dropChip(2)"></td>
-                <td class="slot" id="slot23" onclick="dropChip(3)"></td>
-                <td class="slot" id="slot24" onclick="dropChip(4)"></td>
-                <td class="slot" id="slot25" onclick="dropChip(5)"></td>
-                <td class="slot" id="slot26" onclick="dropChip(6)"></td>
-            </tr>
-            <tr>
-                <td class="slot" id="slot30" onclick="dropChip(0)"></td>
-                <td class="slot" id="slot31" onclick="dropChip(1)"></td>
-                <td class="slot" id="slot32" onclick="dropChip(2)"></td>
-                <td class="slot" id="slot33" onclick="dropChip(3)"></td>
-                <td class="slot" id="slot34" onclick="dropChip(4)"></td>
-                <td class="slot" id="slot35" onclick="dropChip(5)"></td>
-                <td class="slot" id="slot36" onclick="dropChip(6)"></td>
-            </tr>
-            <tr>
-                <td class="slot" id="slot40" onclick="dropChip(0)"></td>
-                <td class="slot" id="slot41" onclick="dropChip(1)"></td>
-                <td class="slot" id="slot42" onclick="dropChip(2)"></td>
-                <td class="slot" id="slot43" onclick="dropChip(3)"></td>
-                <td class="slot" id="slot44" onclick="dropChip(4)"></td>
-                <td class="slot" id="slot45" onclick="dropChip(5)"></td>
-                <td class="slot" id="slot46" onclick="dropChip(6)"></td>
-            </tr>
-            <tr>
-                <td class="slot" id="slot50" onclick="dropChip(0)"></td>
-                <td class="slot" id="slot51" onclick="dropChip(1)"></td>
-                <td class="slot" id="slot52" onclick="dropChip(2)"></td>
-                <td class="slot" id="slot53" onclick="dropChip(3)"></td>
-                <td class="slot" id="slot54" onclick="dropChip(4)"></td>
-                <td class="slot" id="slot55" onclick="dropChip(5)"></td>
-                <td class="slot" id="slot56" onclick="dropChip(6)"></td>
-            </tr>
-        </table>
+<div id="board">
+        <div class="row">
+                <div class="slot" id="slot00" onclick="dropChip(0)"></div>
+                <div class="slot" id="slot01" onclick="dropChip(1)"></div>
+                <div class="slot" id="slot02" onclick="dropChip(2)"></div>
+                <div class="slot" id="slot03" onclick="dropChip(3)"></div>
+                <div class="slot" id="slot04" onclick="dropChip(4)"></div>
+                <div class="slot" id="slot05" onclick="dropChip(5)"></div>
+                <div class="slot" id="slot06" onclick="dropChip(6)"></div>
+        </div>
+            <div class="row">
+                <div class="slot" id="slot10" onclick="dropChip(0)"></div>
+                <div class="slot" id="slot11" onclick="dropChip(1)"></div>
+                <div class="slot" id="slot12" onclick="dropChip(2)"></div>
+                <div class="slot" id="slot13" onclick="dropChip(3)"></div>
+                <div class="slot" id="slot14" onclick="dropChip(4)"></div>
+                <div class="slot" id="slot15" onclick="dropChip(5)"></div>
+                <div class="slot" id="slot16" onclick="dropChip(6)"></div>
+            </div>
+            <div class="row">
+                <div class="slot" id="slot20" onclick="dropChip(0)"></div>
+                <div class="slot" id="slot21" onclick="dropChip(1)"></div>
+                <div class="slot" id="slot22" onclick="dropChip(2)"></div>
+                <div class="slot" id="slot23" onclick="dropChip(3)"></div>
+                <div class="slot" id="slot24" onclick="dropChip(4)"></div>
+                <div class="slot" id="slot25" onclick="dropChip(5)"></div>
+                <div class="slot" id="slot26" onclick="dropChip(6)"></div>
+            </div>
+            <div class="row">
+                <div class="slot" id="slot30" onclick="dropChip(0)"></div>
+                <div class="slot" id="slot31" onclick="dropChip(1)"></div>
+                <div class="slot" id="slot32" onclick="dropChip(2)"></div>
+                <div class="slot" id="slot33" onclick="dropChip(3)"></div>
+                <div class="slot" id="slot34" onclick="dropChip(4)"></div>
+                <div class="slot" id="slot35" onclick="dropChip(5)"></div>
+                <div class="slot" id="slot36" onclick="dropChip(6)"></div>
+            </div>
+            <div class="row">
+                <div class="slot" id="slot40" onclick="dropChip(0)"></div>
+                <div class="slot" id="slot41" onclick="dropChip(1)"></div>
+                <div class="slot" id="slot42" onclick="dropChip(2)"></div>
+                <div class="slot" id="slot43" onclick="dropChip(3)"></div>
+                <div class="slot" id="slot44" onclick="dropChip(4)"></div>
+                <div class="slot" id="slot45" onclick="dropChip(5)"></div>
+                <div class="slot" id="slot46" onclick="dropChip(6)"></div>
+            </div>
+            <div class="row">
+                <div class="slot" id="slot50" onclick="dropChip(0)"></div>
+                <div class="slot" id="slot51" onclick="dropChip(1)"></div>
+                <div class="slot" id="slot52" onclick="dropChip(2)"></div>
+                <div class="slot" id="slot53" onclick="dropChip(3)"></div>
+                <div class="slot" id="slot54" onclick="dropChip(4)"></div>
+                <div class="slot" id="slot55" onclick="dropChip(5)"></div>
+                <div class="slot" id="slot56" onclick="dropChip(6)"></div>
+            </div>
+
+            <script src="Game.js"></script>
     </div>
     
 
     <input id="resetButton" type="button" value="Reset" onclick="resetGrid()" /></br></br>
 
 
-    <script src="Game.js"></script>
+    
 </body>
 </html>

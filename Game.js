@@ -8,29 +8,24 @@
 	**/
 
     let currPlayer = 1; //1 for red chip player, 2 for yellow chip player
-    let turn = 0;
-    let board = [[]];
-    let cols = 7;
-    let rows = 6;
+    //let turn = 0;
+    let board = [
+        [0, 0, 0, 0, 0, 0, 0], // 0 0 0 0 0 0 0 0
+        [0, 0, 0, 0, 0, 0, 0], // 1 1 1 1 1 1 1 1
+        [0, 0, 0, 0, 0, 0, 0], // 2 2 2 2 2 2 2 2
+        [0, 0, 0, 0, 0, 0, 0], // 3 3 3 3 3 3 3 3
+        [0, 0, 0, 0, 0, 0, 0], // 4 4 4 4 4 4 4 4
+        [0, 0, 0, 0, 0, 0, 0]  // 5 5 5 5 5 5 5 5
+      ];
+    //let cols = 7;
+    //let rows = 6;
     let gameActive = true;
-
-    /**
-	* @description Sets up the board and places chips may drop
-    **/
-    
-    for(let i=0; i<rows; i++)
-    {
-        for(let j=0; j<cols; j++)
-        {
-            board[i][j]=0;
-        }
-    }
 
      /**
 	* @description Determines player turn IF the game is not over
     **/
 
-    if(!gameOver())
+    /*if(!gameOver())
     {
         if(validChoice(chosenRow, chosenCol))
         {
@@ -42,7 +37,7 @@
         {
             document.querySelector("#msg").innerText = "Invalid placement, try again player " + currPlayer;
         }
-    }
+    }*/
 
     /**
 	* @description Checks for a win which determines if game is over then returns true or false
@@ -66,66 +61,42 @@
     **/
     function dropChip(chosenCol)
     {
-        let chosenRow=0;
+        //let chosenRow=0;
         //board[chosenRow][chosenCol] = 1;
 
         if(gameActive == true)
         {
-            if(board[0][chosenCol]==0)
-            {
-                chosenRow=0;
-            }
-            else if(board[1][chosenCol]==0)
-            {
-                chosenRow=1;
-            }
-            else if(board[2][chosenCol]==0)
-            {
-                chosenRow=2;
-            }
-            else if(board[3][chosenCol]==0)
-            {
-                chosenRow=3;
-            }
-            else if(board[4][chosenCol]==0)
-            {
-                chosenRow=4;
-            }
-            else if(board[5][chosenCol]==0)
-            {
-                chosenRow=5;
-            }
-            // if(board[5][chosenCol] != 0) 
-            // {
-            //     //Output that column is full
-            // }
     
             if (currPlayer == 1)
             {
-                // for(let row=0; row<7; row++)
-                // {
-                    if(board[chosenRow][chosenCol] == 0) 
+                 for(let row = 5; row >= 0; row --)
+                 {
+                    if(board[row][chosenCol] == 0) 
                     {
-                        board[chosenRow][chosenCol] = 1;
-                        // break;
+                        board[row][chosenCol] = 1;
+                        break;
                     }
-                // }
-                document.getElementById("colorTurn").innerHTML="Red Turn";
+                 }
+
                 currPlayer = 2;
+                document.getElementById("colorTurn").innerHTML="Red Turn";
+                
             }
             else 
             {
-                // for(let row=0; row<7; row++)
-                // {
-                    if(board[chosenRow][chosenCol] == 0) 
+                 for(let row = 5; row >= 0; row --)
+                 {
+                    if(board[row][chosenCol] == 0) 
                     {
-                        board[chosenRow][chosenCol] = 2;
-                        // break;
+                        board[row][chosenCol] = 2;
+                        break;
                     }
-                // }
+                 }
+
                 currPlayer = 1;
                 document.getElementById("colorTurn").innerHTML="Yellow Turn";
             }
+
             updateBoard();
         }
         
@@ -154,7 +125,7 @@
                     } 
                     else if (board[row][col]==2) //2 for red
                     { 
-                        document.getElementById("slot"+row+col).style.backgroundColor="#FF0000";  
+                        document.getElementById("slot"+row+col).style.backgroundColor="#FF0000"; 
                     }
                 }
             }
@@ -262,7 +233,7 @@
 	* @description Verify that chip placement is valid via bounds checking
     **/
    
-    function validChoice(chosenRow, chosenCol)
+   /* function validChoice(chosenRow, chosenCol)
     {
         if(chosenCol>=0 && chosenCol<7 && board[chosenRow][chosenCol]==0 && (chosenRow==0 || board[chosenRow-1][chosenCol]!=0))
         {
@@ -272,13 +243,13 @@
         {
             return false;
         }
-    }
+    }*/
 
      /**
 	* @description If the game is over, then determine who is the winner and who is the loser
     **/
 
-    if(gameOver())
+    /*if(gameOver())
     {
         if(currPlayer%2==0)
         {
@@ -300,4 +271,4 @@
         {
             document.querySelector("#msg").innerText = "Next up is player 2 for turn number " + turn;
         }
-    }
+    }*/
