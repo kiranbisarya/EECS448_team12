@@ -8,7 +8,7 @@
 	**/
 
     let currPlayer = 1; //1 for red chip player, 2 for yellow chip player
-    let turn = 0;
+    let turn = 1;
     let board = [
         [0, 0, 0, 0, 0, 0, 0], // 0 0 0 0 0 0 0 0
         [0, 0, 0, 0, 0, 0, 0], // 1 1 1 1 1 1 1 1
@@ -251,6 +251,7 @@
     **/
    function endTurn()
    {
+    document.getElementById("msg").innerHTML="Time for turn number " + turn + " with player " + currPlayer;
     if(gameOver())
     {
         if(currPlayer==2)
@@ -266,11 +267,11 @@
     {
         if(currPlayer==2)
         {
-            document.getElementById("msg").innerHTML="Next up is player 1 for turn number " + turn;
+            document.getElementById("msg").innerHTML="Next up is player 2 for turn number " + turn;
         }
         else
         {
-            document.getElementById("msg").innerHTML="Next up is player 2 for turn number " + turn;
+            document.getElementById("msg").innerHTML="Next up is player 1 for turn number " + turn;
         }
     }
    }
