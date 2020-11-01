@@ -9,7 +9,7 @@ h1
     text-align: center;
 }
 
-.game
+#board
 {
     position: absolute;
     top: 10rem;
@@ -22,8 +22,13 @@ h1
     padding: 1.5rem;
 }
 
+.row {
+    display: table-row;
+}
+
 .slot
 {
+    display: table-cell;
     width: 90px;
     height: 90px;
     background: white;
@@ -42,3 +47,8 @@ h1
     text-align:center;
     cursor: pointer;
 }
+
+#colorTurn {
+    font-size: 18px;
+    color: #000000
+  }
