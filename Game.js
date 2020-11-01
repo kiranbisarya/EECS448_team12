@@ -8,7 +8,7 @@
 	**/
 
     let currPlayer = 1; //1 for red chip player, 2 for yellow chip player
-    //let turn = 0;
+    let turn = 0;
     let board = [
         [0, 0, 0, 0, 0, 0, 0], // 0 0 0 0 0 0 0 0
         [0, 0, 0, 0, 0, 0, 0], // 1 1 1 1 1 1 1 1
@@ -24,37 +24,21 @@
      /**
 	* @description Determines player turn IF the game is not over
     **/
-
-    /*if(!gameOver())
-    {
-        if(validChoice(chosenRow, chosenCol))
-        {
-            dropChip(chosenCol);
-            currPlayer++;
-            turn++;
-        }
-        else
-        {
-            document.querySelector("#msg").innerText = "Invalid placement, try again player " + currPlayer;
-        }
-    }*/
-
-    /**
-	* @description Checks for a win which determines if game is over then returns true or false
-    **/
-   function gameOver()
-   {
-        if(checkForHorzWin()==1 || checkForHorzWin()==2 || checkForVertWin()==1 || checkForVertWin()==2 || checkForDiagnol_LtR_Win()==1 || checkForDiagnol_LtR_Win()==2 || 
-        checkForDiagnol_RtL_Win()==1 || checkForDiagnol_RtL_Win()==2)
-        {
-            gameActive = false;
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-   }
+//    function updateVals()
+//    {
+//         if(!gameOver())
+//         {
+//             if(gameActive==true)
+//             {
+//                 // currPlayer++;
+//                 turn++;
+//             }
+//             else
+//             {
+//                 document.querySelector("#msg").innerText = "Invalid placement, try again player " + currPlayer;
+//             }
+//         }
+//     }   
 
     /**
 	* @description Chip placement
@@ -66,7 +50,6 @@
 
         if(gameActive == true)
         {
-    
             if (currPlayer == 1)
             {
                  for(let row = 5; row >= 0; row --)
@@ -79,6 +62,7 @@
                  }
 
                 currPlayer = 2;
+                turn++;
                 document.getElementById("colorTurn").innerHTML="Red Turn";
                 
             }
@@ -94,12 +78,12 @@
                  }
 
                 currPlayer = 1;
+                turn++;
                 document.getElementById("colorTurn").innerHTML="Yellow Turn";
             }
-
             updateBoard();
+            endTurn();
         }
-        
     }
 
 
@@ -245,30 +229,49 @@
         }
     }*/
 
+    /**
+	* @description Checks for a win which determines if game is over then returns true or false
+    **/
+   function gameOver()
+   {
+        if(checkForHorzWin()==1 || checkForHorzWin()==2 || checkForVertWin()==1 || checkForVertWin()==2 || checkForDiagnol_LtR_Win()==1 || checkForDiagnol_LtR_Win()==2 || 
+        checkForDiagnol_RtL_Win()==1 || checkForDiagnol_RtL_Win()==2)
+        {
+            gameActive = false;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+   }
+
      /**
 	* @description If the game is over, then determine who is the winner and who is the loser
     **/
-
-    /*if(gameOver())
+   function endTurn()
+   {
+    if(gameOver())
     {
-        if(currPlayer%2==0)
+        if(currPlayer==2)
         {
-            document.querySelector("#msg").innerText = "Congratulations! Player 2 has won on turn number " + turn;
+            document.getElementById("msg").innerHTML="Congratulations! Player 2 has won on turn number " + turn;
         }
         else
         {
-            document.querySelector("#msg").innerText = "Congratulations! Player 1 has won on turn number " + turn;
+            document.getElementById("msg").innerHTML="Congratulations! Player 1 has won on turn number " + turn;
         }
     }
-
     else
     {
-        if(currPlayer%2==0)
+        if(currPlayer==2)
         {
-            document.querySelector("#msg").innerText = "Next up is player 1 for turn number " + turn;
+            document.getElementById("msg").innerHTML="Next up is player 1 for turn number " + turn;
         }
         else
         {
-            document.querySelector("#msg").innerText = "Next up is player 2 for turn number " + turn;
+            document.getElementById("msg").innerHTML="Next up is player 2 for turn number " + turn;
         }
-    }*/
+    }
+   }
+
