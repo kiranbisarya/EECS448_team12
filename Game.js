@@ -64,7 +64,7 @@
                 currPlayer = 2;
                 turn++;
                 document.getElementById("colorTurn").innerHTML="Red Turn";
-                
+                console.log("This is player 1.")
             }
             else 
             {
@@ -80,6 +80,7 @@
                 currPlayer = 1;
                 turn++;
                 document.getElementById("colorTurn").innerHTML="Yellow Turn";
+                console.log("This is player 2.")
             }
             updateBoard();
             endTurn();
@@ -95,9 +96,9 @@
     {
         if(gameActive == true)
         {
-            for (let row = 0; row < 6; row++) 
+            for (let col = 0; col < 7; col++)  //row was originally here, but in our win checks we are accessing col before row (?)
             {
-                for (let col = 0; col < 7; col++) 
+                for (let row = 0; row < 6; row++) 
                 {
                     if (board[row][col]==0) 
                     {
@@ -114,6 +115,8 @@
                 }
             }
         }
+
+        console.log("This is updateBoard.")
     }
 
     /**
@@ -128,16 +131,27 @@
             {
                 for (let row = 0; row < 6; row ++) 
                 {
-                    if (board[row][col] == i) 
+                    if (board[row][col] == i) //setting a 2d array equal to a single value?
                     {
                         if ((board[row][col+1] == i) && (board[row][col+2] == i) && (board[row][col+3] == i)) 
                         {
                             return i;
+                            //console.log(i); //tested to see if we are able to see if we are returning 1 or 2, but we are not returning anything yet.
                         }
+                        
+                        // console.log(i)
                     }
+
+                    // console.log(row)
                 }
+
+                // console.log(col)
             }
+        
+            console.log(i)
         }
+
+        console.log("This is checkHorizon.") //so far only checkHorizon is being checked, and is being executed twice during each turn.
     }
 
 
@@ -155,7 +169,7 @@
                 {
                     if (board[row][col] == i) 
                     {
-                        if ((board[row+1][col] == i) && (board[row+2][col] == i) && (board[row+3][col] == i)) 
+                        if ((board[row+1][col] == i) && (board[row+2][col] == i) && (board[row+3][col] == i)) //Game.js:159 Uncaught TypeError: Cannot read property '0' of undefined --> error in console
                         {
                             return i;
                         }
@@ -163,6 +177,8 @@
                 }
             }
         }
+
+        console.log("This is checkVert.")
     }
 
     
@@ -188,6 +204,7 @@
                 }
             }
         }
+        console.log("This is checkDiag LtR.")
     }
     
     /**
@@ -211,7 +228,9 @@
                 }
             }
         }
+        console.log("This is checkDiag RtL.")
     }
+
 
     /**
 	* @description Verify that chip placement is valid via bounds checking
