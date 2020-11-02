@@ -50,6 +50,11 @@
 
         if(gameActive == true)
         {
+            if(board[0][chosenCol] != 0) 
+            { //handles user clicking on column that is already full
+                document.getElementById("fullColumn").innerHTML = "Column " + (chosenCol+1) + " is full. Please choose another column";
+            }
+
             if (currPlayer == 1)
             {
                  for(let row = 5; row >= 0; row --)
@@ -235,6 +240,22 @@
 
 
     /**
+	* @description Checks if there is a tie by checking if all of the columns are full and returns true or false
+    **/ 
+
+    function checkForTie()
+    {
+        if(board[0][0] != 0 && board[0][1] != 0 && board[0][2] != 0 && board[0][3] != 0 && board[0][4] != 0 && board[0][5] != 0 && board[0][6] != 0) 
+        { 
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    /**
 	* @description Verify that chip placement is valid via bounds checking
     **/
    
@@ -273,7 +294,12 @@
    function endTurn()
    {
     //document.getElementById("msg").innerHTML="Time for turn number " + turn + " with player " + currPlayer;
-    if(gameOver())
+    if(checkForTie() == true)
+    {
+        document.getElementById("msg").innerHTML="It's a Tie!";
+    }
+    
+    else if(gameOver())
     {
         if(currPlayer==2)
         {
