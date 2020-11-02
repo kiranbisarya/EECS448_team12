@@ -26,6 +26,8 @@
     **/
     function resetGrid()
     {
+        var snd = new Audio("clear.mp3");
+		snd.play()
         board = [
             [0, 0, 0, 0, 0, 0, 0], // 0 0 0 0 0 0 0 0
             [0, 0, 0, 0, 0, 0, 0], // 1 1 1 1 1 1 1 1
@@ -37,8 +39,9 @@
           updateBoard();
           currPlayer = 1; //1 for red chip player, 2 for yellow chip player
           turn = 0; 
-          endTurn();
           gameActive = true;
+          endTurn();
+          
     }
      /**
 	* @description Determines player turn IF the game is not over
