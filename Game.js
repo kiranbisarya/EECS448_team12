@@ -87,6 +87,8 @@
                 document.getElementById("colorTurn").innerHTML="Yellow Turn";
                 console.log("This is player 2.")
             }
+            var snd = new Audio("chip.mp3");
+		    snd.play();
             updateBoard();
             endTurn();
         }
@@ -301,6 +303,8 @@
     
     else if(gameOver())
     {
+        var snd = new Audio("win.mp3");
+		snd.play();
         if(currPlayer==2)
         {
             document.getElementById("msg").innerHTML="Congratulations! Player 2 has won on turn number " + turn;
