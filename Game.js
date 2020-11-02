@@ -62,7 +62,7 @@
                  }
 
                 currPlayer = 2;
-                turn++;
+                //turn++;
                 document.getElementById("colorTurn").innerHTML="Red Turn";
                 console.log("This is player 1.")
             }
@@ -78,7 +78,7 @@
                  }
 
                 currPlayer = 1;
-                turn++;
+                //turn++;
                 document.getElementById("colorTurn").innerHTML="Yellow Turn";
                 console.log("This is player 2.")
             }
@@ -272,7 +272,7 @@
     **/
    function endTurn()
    {
-    document.getElementById("msg").innerHTML="Time for turn number " + turn + " with player " + currPlayer;
+    //document.getElementById("msg").innerHTML="Time for turn number " + turn + " with player " + currPlayer;
     if(gameOver())
     {
         if(currPlayer==2)
@@ -286,6 +286,7 @@
     }
     else
     {
+        turn++;
         if(currPlayer==2)
         {
             document.getElementById("msg").innerHTML="Next up is player 2 for turn number " + turn;
