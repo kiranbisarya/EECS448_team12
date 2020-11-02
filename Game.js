@@ -106,11 +106,13 @@
                     } 
                     else if (board[row][col]==1) //1 for yellow
                     { 
-                        document.getElementById("slot"+row+col).style.backgroundColor="#FFFF00";  
+                        document.getElementById("slot"+row+col).style.backgroundColor="#FFFF00";
+   
                     } 
                     else if (board[row][col]==2) //2 for red
                     { 
                         document.getElementById("slot"+row+col).style.backgroundColor="#FF0000"; 
+
                     }
                 }
             }
@@ -127,7 +129,7 @@
     {
         for (let i=1; i<=2; i++) 
         {
-            for (let col = 0; col < 7; col ++) 
+            for (let col = 0; col < 4; col ++) 
             {
                 for (let row = 0; row < 6; row ++) 
                 {
@@ -148,10 +150,10 @@
                 // console.log(col)
             }
         
-            console.log(i)
+            //console.log(i)
         }
 
-        console.log("This is checkHorizon.") //so far only checkHorizon is being checked, and is being executed twice during each turn.
+        //console.log("This is checkHorizon.") //so far only checkHorizon is being checked, and is being executed twice during each turn.
     }
 
 
@@ -165,7 +167,7 @@
         {
             for (let col = 0; col < 7; col++) 
             {
-                for (let row = 0; row < 6; row++) 
+                for (let row = 0; row < 3; row++) 
                 {
                     if (board[row][col] == i) 
                     {
@@ -178,7 +180,7 @@
             }
         }
 
-        console.log("This is checkVert.")
+        //console.log("This is checkVert.")
     }
 
     
@@ -186,13 +188,13 @@
 	* @description Checks if a player has a diagonal left to right win and returns the player that won (1 or 2)
     **/    
 
-    function checkForDiagnol_LtR_Win() 
+    function checkForDiagonal_LtR_Win() 
     {
         for (let i=1; i<=2; i++) 
         {
-            for (let col = 0; col < 7; col++) 
+            for (let col = 0; col < 4; col++) 
             {
-                for (let row = 0; row < 6; row++) 
+                for (let row = 3; row < 6; row++) 
                 {
                     if (board[row][col] == i) 
                     {
@@ -204,19 +206,19 @@
                 }
             }
         }
-        console.log("This is checkDiag LtR.")
+        //console.log("This is checkDiag LtR.")
     }
     
     /**
 	* @description Checks if a player has a diagonal right to left win and returns the player that won (1 or 2)
     **/  
-    function checkForDiagnol_RtL_Win() 
+    function checkForDiagonal_RtL_Win() 
     {
         for (let i=1; i<=2; i++) 
         {
-            for (let col = 0; col < 7; col++) 
+            for (let col = 0; col < 4; col++) 
             {
-                for (let row = 0; row < 6; row++) 
+                for (let row = 0; row < 3; row++) 
                 {
                     if (board[row][col] == i) 
                     {
@@ -228,7 +230,7 @@
                 }
             }
         }
-        console.log("This is checkDiag RtL.")
+        //console.log("This is checkDiag RtL.")
     }
 
 
@@ -253,8 +255,8 @@
     **/
    function gameOver()
    {
-        if(checkForHorzWin()==1 || checkForHorzWin()==2 || checkForVertWin()==1 || checkForVertWin()==2 || checkForDiagnol_LtR_Win()==1 || checkForDiagnol_LtR_Win()==2 || 
-        checkForDiagnol_RtL_Win()==1 || checkForDiagnol_RtL_Win()==2)
+        if(checkForHorzWin()==1 || checkForHorzWin()==2 || checkForVertWin()==1 || checkForVertWin()==2 || checkForDiagonal_LtR_Win()==1 || checkForDiagonal_LtR_Win()==2 || 
+        checkForDiagonal_RtL_Win()==1 || checkForDiagonal_RtL_Win()==2)
         {
             gameActive = false;
             return true;
