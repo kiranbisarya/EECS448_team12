@@ -28,7 +28,11 @@
     {
         var snd = new Audio("clear.mp3");
 		snd.play()
-        board = [
+        
+          currPlayer = 1; //1 for red chip player, 2 for yellow chip player
+          turn = 1; 
+          gameActive = true;
+          board = [
             [0, 0, 0, 0, 0, 0, 0], // 0 0 0 0 0 0 0 0
             [0, 0, 0, 0, 0, 0, 0], // 1 1 1 1 1 1 1 1
             [0, 0, 0, 0, 0, 0, 0], // 2 2 2 2 2 2 2 2
@@ -37,11 +41,8 @@
             [0, 0, 0, 0, 0, 0, 0]  // 5 5 5 5 5 5 5 5
           ];
           updateBoard();
-          currPlayer = 1; //1 for red chip player, 2 for yellow chip player
-          turn = 0; 
-          gameActive = true;
           endTurn();
-          
+          console.log("board reset.") 
     }
      /**
 	* @description Determines player turn IF the game is not over
@@ -91,7 +92,6 @@
                 currPlayer = 2;
                 //turn++;
                 document.getElementById("colorTurn").innerHTML="Red Turn";
-                console.log("This is player 1.")
             }
             else 
             {
@@ -107,7 +107,6 @@
                 currPlayer = 1;
                 //turn++;
                 document.getElementById("colorTurn").innerHTML="Yellow Turn";
-                console.log("This is player 2.")
             }
             var snd = new Audio("chip.mp3");
 		    snd.play();
@@ -141,13 +140,10 @@
                     else if (board[row][col]==2) //2 for red
                     { 
                         document.getElementById("slot"+row+col).style.backgroundColor="#FF0000"; 
-
                     }
                 }
             }
         }
-
-        console.log("This is updateBoard.")
     }
 
     /**
@@ -167,22 +163,16 @@
                         if ((board[row][col+1] == i) && (board[row][col+2] == i) && (board[row][col+3] == i)) 
                         {
                             return i;
-                            //console.log(i); //tested to see if we are able to see if we are returning 1 or 2, but we are not returning anything yet.
                         }
                         
-                        // console.log(i)
                     }
 
-                    // console.log(row)
                 }
 
-                // console.log(col)
             }
         
-            //console.log(i)
         }
 
-        //console.log("This is checkHorizon.") //so far only checkHorizon is being checked, and is being executed twice during each turn.
     }
 
 
@@ -200,7 +190,7 @@
                 {
                     if (board[row][col] == i) 
                     {
-                        if ((board[row+1][col] == i) && (board[row+2][col] == i) && (board[row+3][col] == i)) //Game.js:159 Uncaught TypeError: Cannot read property '0' of undefined --> error in console
+                        if ((board[row+1][col] == i) && (board[row+2][col] == i) && (board[row+3][col] == i)) 
                         {
                             return i;
                         }
@@ -208,8 +198,6 @@
                 }
             }
         }
-
-        //console.log("This is checkVert.")
     }
 
     
@@ -235,7 +223,6 @@
                 }
             }
         }
-        //console.log("This is checkDiag LtR.")
     }
     
     /**
@@ -259,7 +246,6 @@
                 }
             }
         }
-        //console.log("This is checkDiag RtL.")
     }
 
 
@@ -323,7 +309,7 @@
         document.getElementById("msg").innerHTML="It's a Tie!";
     }
     
-    else if(gameOver())
+    else if(gameOver() == true)
     {
         var snd = new Audio("win.mp3");
 		snd.play();
@@ -336,7 +322,7 @@
             document.getElementById("msg").innerHTML="Congratulations! Player 1 has won on turn number " + turn;
         }
     }
-    else
+    else if(gameOver() == false)
     {
         turn++;
         if(currPlayer==2)
