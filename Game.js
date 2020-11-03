@@ -21,6 +21,50 @@
     //let rows = 6;
     let gameActive = true;
 
+
+    function testSuite()
+    {
+        console.log("=== CONNECT4 TEST SUITE ===")
+        //contains tests that check each function's ability to correcrl execute a task.
+        console.log("TEST 01_DROPCHIP")
+        //test01_dropChip();
+        console.log("TEST 02_UPDATEBOARD")
+        test02_updateBoard();
+
+    }
+
+    // function test01_dropChip()
+    // {
+        
+    // }
+
+    function test02_updateBoard()
+    {
+        for(let slot_test = 0; slot_test <= 2; slot_test++)
+        {
+            for (let col = 0; col < 7; col++)  //row was originally here, but in our win checks we are accessing col before row (?)
+            {
+                for (let row = 0; row < 6; row++) 
+                {
+                    if (board[row][col]==0) 
+                    {
+                        console.log("Slot not selected by either Player 1 or Player 2 remains unselected: PASSED.")
+                    } 
+                    else if (board[row][col]==1) //1 for yellow
+                    { 
+                        console.log("Slot selected by either Player 1: PASSED.")
+                    } 
+                    else if (board[row][col]==2) //2 for red
+                    { 
+                        console.log("Slot selected by either Player 2: PASSED.")
+                    }
+                }
+            }
+        }
+    }
+
+    testSuite();
+
      /**
 	* @description Resets the game
     **/
