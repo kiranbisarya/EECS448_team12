@@ -28,8 +28,33 @@
         //contains tests that check each function's ability to correcrl execute a task.
         console.log("TEST 01_DROPCHIP")
         //test01_dropChip();
+
         console.log("TEST 02_UPDATEBOARD")
         test02_updateBoard();
+
+        //console.log("TEST03_CHECKHORIZ")
+        //test03_checkHoriz();
+
+        //console.log("TEST04_CHECKVERT")
+        //test04_checkVert();
+
+        //console.log("TEST05_CHECKDIAGLTR")
+        //test05_checkDiagLtR();
+
+        //console.log("TEST06_CHECKDIAGRTL")
+        //test06_checkDiagRtL();
+
+        //console.log("TEST07_CHECKTIE")
+        //test07_checkTie();
+
+        //console.log("TEST08_GAMEOVER")
+        //test08_gameOver();
+
+        //console.log("TEST09_ENDTURN")
+        //test09_endTurn();
+
+
+
 
     }
 
@@ -40,26 +65,110 @@
 
     function test02_updateBoard()
     {
-        for(let slot_test = 0; slot_test <= 2; slot_test++)
+        let testBoard0 = [
+            [0, 0, 0, 0, 0, 0, 0], // 1 1 1 1 1 1 1 1
+            [0, 0, 0, 0, 0, 0, 0], // 2 2 2 2 2 2 2 2
+            [0, 0, 0, 0, 0, 0, 0], // 3 3 3 3 3 3 3 3
+            [0, 0, 0, 0, 0, 0, 0], // 4 4 4 4 4 4 4 4
+            [0, 0, 0, 0, 0, 0, 0]  // 5 5 5 5 5 5 5 5
+          ];
+
+        let testBoard1 = [
+            [1, 0, 0, 0, 0, 0, 0], // 1 1 1 1 1 1 1 1
+            [0, 0, 0, 0, 0, 0, 0], // 2 2 2 2 2 2 2 2
+            [0, 0, 0, 0, 0, 0, 0], // 3 3 3 3 3 3 3 3
+            [0, 0, 0, 0, 0, 0, 0], // 4 4 4 4 4 4 4 4
+            [0, 0, 0, 0, 0, 0, 0]  // 5 5 5 5 5 5 5 5
+          ];
+
+        let testBoard2 = [
+            [2, 0, 0, 0, 0, 0, 0], // 1 1 1 1 1 1 1 1
+            [0, 0, 0, 0, 0, 0, 0], // 2 2 2 2 2 2 2 2
+            [0, 0, 0, 0, 0, 0, 0], // 3 3 3 3 3 3 3 3
+            [0, 0, 0, 0, 0, 0, 0], // 4 4 4 4 4 4 4 4
+            [0, 0, 0, 0, 0, 0, 0]  // 5 5 5 5 5 5 5 5
+          ];
+
+        
+        for (let col = 0; col < 7; col++)  //row was originally here, but in our win checks we are accessing col before row (?)
         {
-            for (let col = 0; col < 7; col++)  //row was originally here, but in our win checks we are accessing col before row (?)
+            for (let row = 0; row < 6; row++) 
             {
-                for (let row = 0; row < 6; row++) 
+                if (testBoard0[row][col]==0) // 0 for no color
                 {
-                    if (board[row][col]==0) 
-                    {
-                        console.log("Slot not selected by either Player 1 or Player 2 remains unselected: PASSED.")
-                    } 
-                    else if (board[row][col]==1) //1 for yellow
-                    { 
-                        console.log("Slot selected by either Player 1: PASSED.")
-                    } 
-                    else if (board[row][col]==2) //2 for red
-                    { 
-                        console.log("Slot selected by either Player 2: PASSED.")
-                    }
+                    console.log("Slot not selected by either Player 1 or Player 2 remains unselected: PASSED.")
+                } 
+                else
+                {
+                    console.log("Slot not selected by either Player 1 or Player 2 remains unselected: FAILED.")
                 }
             }
+        }
+
+        for (let col = 0; col < 7; col++)  //row was originally here, but in our win checks we are accessing col before row (?)
+        {
+            for (let row = 0; row < 6; row++) 
+            {
+                if (testBoard1[row][col]==1) //1 for yellow
+                { 
+                    console.log("Slot selected by either Player 1: PASSED.")
+                } 
+                else
+                {
+                    console.log("Slot selected by either Player 1: FAILED.")
+                }
+            }
+        }
+
+        for (let col = 0; col < 7; col++)  //row was originally here, but in our win checks we are accessing col before row (?)
+        {
+            for (let row = 0; row < 6; row++) 
+            {
+                if (testBoard2[row][col]==2) //1 for yellow
+                { 
+                    console.log("Slot selected by either Player 1: PASSED.")
+                } 
+                else
+                {
+                    console.log("Slot selected by either Player 1: FAILED.")
+                }
+            }
+        }
+    }
+
+    function test03_checkHoriz()
+    {
+        let testBoard = [
+            [1, 1, 1, 1, 1, 1, 1], // 1 1 1 1 1 1 1 1
+            [0, 0, 0, 0, 0, 0, 0], // 2 2 2 2 2 2 2 2
+            [0, 0, 0, 0, 0, 0, 0], // 3 3 3 3 3 3 3 3
+            [0, 0, 0, 0, 0, 0, 0], // 4 4 4 4 4 4 4 4
+            [0, 0, 0, 0, 0, 0, 0]  // 5 5 5 5 5 5 5 5
+          ];
+
+        for (let i=1; i<=2; i++) 
+        {
+            for (let col = 0; col < 4; col ++) 
+            {
+                for (let row = 0; row < 6; row ++) 
+                {
+                    if (testBoard[row][col] == i) 
+                    {
+                        if ((testBoard[row][col+1] == i) && (testBoard[row][col+2] == i) && (testBoard[row][col+3] == i)) 
+                        {
+                            console.log("Horizon Win detected: PASSED.");
+                        }
+                        else
+                        {
+                            console.log("Horizon Win detected: FAILED.");
+                        }
+                        
+                    }
+
+                }
+
+            }
+        
         }
     }
 
