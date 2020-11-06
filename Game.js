@@ -24,33 +24,34 @@
 
     function testSuite()
     {
+        gameActive = true;
         console.log("=== CONNECT4 TEST SUITE ===")
         //contains tests that check each function's ability to correcrl execute a task.
         console.log("TEST 01_DROPCHIP")
         //test01_dropChip();
 
         console.log("TEST 02_UPDATEBOARD")
-        test02_updateBoard();
+        // test02_updateBoard();
 
-        //console.log("TEST03_CHECKHORIZ")
+        console.log("TEST03_CHECKHORIZ")
         //test03_checkHoriz();
 
-        //console.log("TEST04_CHECKVERT")
-        //test04_checkVert();
+        console.log("TEST04_CHECKVERT")
+        test04_checkVert();
 
-        //console.log("TEST05_CHECKDIAGLTR")
+        console.log("TEST05_CHECKDIAGLTR")
         //test05_checkDiagLtR();
 
-        //console.log("TEST06_CHECKDIAGRTL")
+        console.log("TEST06_CHECKDIAGRTL")
         //test06_checkDiagRtL();
 
-        //console.log("TEST07_CHECKTIE")
+        console.log("TEST07_CHECKTIE")
         //test07_checkTie();
 
-        //console.log("TEST08_GAMEOVER")
+        console.log("TEST08_GAMEOVER")
         //test08_gameOver();
 
-        //console.log("TEST09_ENDTURN")
+        console.log("TEST09_ENDTURN")
         //test09_endTurn();
 
 
@@ -139,11 +140,11 @@
     function test03_checkHoriz()
     {
         let testBoard = [
-            [1, 1, 1, 1, 1, 1, 1], // 1 1 1 1 1 1 1 1
+            [0, 0, 0, 0, 0, 0, 0], // 1 1 1 1 1 1 1 1
             [0, 0, 0, 0, 0, 0, 0], // 2 2 2 2 2 2 2 2
             [0, 0, 0, 0, 0, 0, 0], // 3 3 3 3 3 3 3 3
             [0, 0, 0, 0, 0, 0, 0], // 4 4 4 4 4 4 4 4
-            [0, 0, 0, 0, 0, 0, 0]  // 5 5 5 5 5 5 5 5
+            [1, 1, 1, 1, 0, 0, 0]  // 5 5 5 5 5 5 5 5
           ];
 
         for (let i=1; i<=2; i++) 
@@ -171,6 +172,147 @@
         
         }
     }
+
+    function test04_checkVert()
+    {
+        let testBoard = [
+            [0, 0, 0, 0, 0, 0, 0], // 1 1 1 1 1 1 1 1
+            [1, 0, 0, 0, 0, 0, 0], // 2 2 2 2 2 2 2 2
+            [1, 0, 0, 0, 0, 0, 0], // 3 3 3 3 3 3 3 3
+            [1, 0, 0, 0, 0, 0, 0], // 4 4 4 4 4 4 4 4
+            [1, 0, 0, 0, 0, 0, 0]  // 5 5 5 5 5 5 5 5
+          ];
+
+          for (let i=1; i<=2; i++) 
+          {
+              for (let col = 0; col < 7; col++) 
+              {
+                  for (let row = 0; row < 3; row++) 
+                  {
+                      if (testBoard[row][col] == i) 
+                      {
+                          if ((testBoard[row+1][col] == i) && (testBoard[row+2][col] == i) && (testBoard[row+3][col] == i)) 
+                          {
+                                console.log("Vertical win detected: PASSED");
+                                // return i;
+                          }
+                          else
+                          {
+                                console.log("Vertical win detected: FALSE");
+                          }
+                      }
+                  }
+              }
+          }
+    }
+
+    function test05_checkDiagLtR()
+    {
+        let testBoard = [
+            [1, 0, 0, 0, 0, 0, 0], // 1 1 1 1 1 1 1 1
+            [0, 1, 0, 0, 0, 0, 0], // 2 2 2 2 2 2 2 2
+            [0, 0, 1, 0, 0, 0, 0], // 3 3 3 3 3 3 3 3
+            [0, 0, 0, 1, 0, 0, 0], // 4 4 4 4 4 4 4 4
+            [0, 0, 0, 0, 0, 0, 0]  // 5 5 5 5 5 5 5 5
+          ];
+
+          for (let i=1; i<=2; i++) 
+          {
+              for (let col = 0; col < 4; col++) 
+              {
+                  for (let row = 3; row < 6; row++) 
+                  {
+                        if (testBoard[row][col] == i) 
+                        {
+                            if ((testBoard[row-1][col+1] == i) && (testBoard[row-2][col+2] == i) && (testBoard[row-3][col+3] == i)) 
+                            {
+                                console.log("Diagonal Left to Right win detected: PASSED");
+                                return i;
+                            }
+                            else
+                            {
+                                console.log("Diagonal Left to Right win detected: FAILED");
+                            }
+                        }
+                        else
+                        {
+                            console.log("Diagonal Left to Right win detected: FAILED");
+                        }
+                    }
+                }
+            }
+        }
+
+        function test06_checkDiagRtL()
+        {
+            let testBoard = [
+                [0, 0, 0, 0, 0, 0, 0], // 1 1 1 1 1 1 1 1
+                [0, 1, 0, 0, 0, 0, 0], // 2 2 2 2 2 2 2 2
+                [0, 0, 1, 0, 0, 0, 0], // 3 3 3 3 3 3 3 3
+                [0, 0, 0, 1, 0, 0, 0], // 4 4 4 4 4 4 4 4
+                [0, 0, 0, 0, 1, 0, 0]  // 5 5 5 5 5 5 5 5
+              ];
+              
+            for (let i=1; i<=2; i++) 
+            {
+                for (let col = 0; col < 4; col++) 
+                {
+                    for (let row = 0; row < 3; row++) 
+                    {
+                        if (testBoard[row][col] == i) 
+                        {
+                            if ((testBoard[row+1][col+1] == i) && (testBoard[row+2][col+2] == i) && (testBoard[row+3][col+3] == i)) 
+                            {
+                                console.log("Diagonal Right to Left win detected: PASSED");
+                                return i;
+                            }
+                            else
+                            {
+                                console.log("Diagonal Right to Left win detected: FAILED");
+                                  
+                            }   
+                        }
+                        else
+                            {
+                                console.log("Diagonal Right to Left win detected: FAILED");
+                                  
+                            } 
+                    }
+                }
+            }
+        }
+
+        function test07_checkTie()
+        {
+            let testBoard = [
+                [2, 2, 1, 2, 1, 2, 1], // 1 1 1 1 1 1 1 1
+                [2, 1, 1, 2, 1, 2, 1], // 2 2 2 2 2 2 2 2
+                [1, 1, 2, 2, 1, 2, 1], // 3 3 3 3 3 3 3 3
+                [2, 2, 2, 1, 2, 1, 2], // 4 4 4 4 4 4 4 4
+                [1, 2, 1, 1, 1, 2, 1]  // 5 5 5 5 5 5 5 5
+              ];
+
+            if(board[0][0] != 0 && board[0][1] != 0 && board[0][2] != 0 && board[0][3] != 0 && board[0][4] != 0 && board[0][5] != 0 && board[0][6] != 0) 
+            { 
+                console.log("Tie detected: PASSED");
+                return true;
+            }
+            else
+            {
+                console.log("Tie detected: FAILED");
+                return false;
+            }
+        }
+
+        function test08_gameOver()
+        {
+
+        }
+
+        function test09_endTurn()
+        {
+
+        }
 
     testSuite();
 
