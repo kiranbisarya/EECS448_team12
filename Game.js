@@ -51,8 +51,8 @@
         console.log("TEST08_GAMEOVER")
         test08_gameOver();
 
-        // console.log("TEST09_ENDTURN")
-        //test09_endTurn();
+        console.log("TEST09_ENDTURN")
+        test09_endTurn();
 
 
 
@@ -75,19 +75,19 @@
           ];
 
         var testBoard1 = [
-            [1, 0, 0, 0, 0, 0, 0], // 1 1 1 1 1 1 1 1
+            [0, 0, 0, 0, 0, 0, 0], // 1 1 1 1 1 1 1 1
             [0, 0, 0, 0, 0, 0, 0], // 2 2 2 2 2 2 2 2
             [0, 0, 0, 0, 0, 0, 0], // 3 3 3 3 3 3 3 3
             [0, 0, 0, 0, 0, 0, 0], // 4 4 4 4 4 4 4 4
-            [0, 0, 0, 0, 0, 0, 0]  // 5 5 5 5 5 5 5 5
+            [1, 0, 0, 0, 0, 0, 0]  // 5 5 5 5 5 5 5 5
           ];
 
         var testBoard2 = [
-            [2, 0, 0, 0, 0, 0, 0], // 1 1 1 1 1 1 1 1
+            [0, 0, 0, 0, 0, 0, 0], // 1 1 1 1 1 1 1 1
             [0, 0, 0, 0, 0, 0, 0], // 2 2 2 2 2 2 2 2
             [0, 0, 0, 0, 0, 0, 0], // 3 3 3 3 3 3 3 3
             [0, 0, 0, 0, 0, 0, 0], // 4 4 4 4 4 4 4 4
-            [0, 0, 0, 0, 0, 0, 0]  // 5 5 5 5 5 5 5 5
+            [2, 0, 0, 0, 0, 0, 0]  // 5 5 5 5 5 5 5 5
           ];
 
         // let indexCheck = false;
@@ -114,7 +114,7 @@
         {
             for (let row = 0; row < 6; row++) 
             {
-                if (testBoard1[row][col]==1) //1 for yellow
+                if (testBoard1[5][1]==1) //1 for yellow
                 { 
                     console.log("Slot selected by Player 1: PASSED.")
                 } 
@@ -343,8 +343,11 @@
             function testTie(){
                 return true;
             }
-            function testgameOver() {
+            function testgameOver1() {
                 return true;
+            }
+            function testgameOver2() {
+                return false;
             }
 
             let testPlayer2 = 2;
@@ -352,30 +355,33 @@
 
             if(testTie() == true)
             {
-                console.log("Game Tied, Game Ends: PASSED");
+                console.log("Case 1: Game Tied, Game Ends: PASSED");
             }
             else
             {
-                console.log("Game Tied, Game Ends: FAILED");
+                console.log("Case 1: Game Tied, Game Ends: FAILED");
             }
             
-            if(testgameOver() == true)
+            if(testgameOver1() == true)
             {
                 if(testPlayer2==2)
                 {
-
+                console.log("Case 2: Confirm most recent player (Player 2) has won: PASSED");
                 }
                 else
                 {
+                console.log("Case 2: Confirm most recent player (Player 2) has won: FAILED");
                 }
             }
-            if(testgameOver() == false)
+            if(testgameOver2() == false)
             {
                 if(testPlayer2==2)
                 {
+                console.log("Case 3: Confirm that it is now Player 2's turn: PASSED");
                 }
                 else
                 {
+                console.log("Case 3: Confirm that it is now Player 2's turn: FAILED");
                 }
             }
         }
