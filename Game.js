@@ -27,8 +27,8 @@
         gameActive = true;
         console.log("=== CONNECT4 TEST SUITE ===")
         //contains tests that check each function's ability to correcrl execute a task.
-        // console.log("TEST 01_DROPCHIP")
-        //test01_dropChip();
+        console.log("TEST 01_DROPCHIP")
+        test01_dropChip();
 
         console.log("TEST 02_UPDATEBOARD")
         test02_updateBoard();
@@ -61,49 +61,96 @@
 
     function test01_dropChip()
     {
-        if(gameActive == true)
-        {
-            if(board[0][chosenCol] != 0) 
+        let currTestPlayer1 = 1;
+        let currTestPlayer2 = 2;
+        let chosenTestCol = 0;
+        let testBoard1 = [
+            [0, 0, 0, 0, 0, 0, 0], // 1 1 1 1 1 1 1 1
+            [0, 0, 0, 0, 0, 0, 0], // 2 2 2 2 2 2 2 2
+            [0, 0, 0, 0, 0, 0, 0], // 3 3 3 3 3 3 3 3
+            [0, 0, 0, 0, 0, 0, 0], // 4 4 4 4 4 4 4 4
+            [1, 0, 0, 0, 0, 0, 0]  // 5 5 5 5 5 5 5 5
+          ];
+
+          let testBoard2 = [
+            [0, 0, 0, 0, 0, 0, 0], // 1 1 1 1 1 1 1 1
+            [0, 0, 0, 0, 0, 0, 0], // 2 2 2 2 2 2 2 2
+            [0, 0, 0, 0, 0, 0, 0], // 3 3 3 3 3 3 3 3
+            [0, 0, 0, 0, 0, 0, 0], // 4 4 4 4 4 4 4 4
+            [2, 0, 0, 0, 0, 0, 0]  // 5 5 5 5 5 5 5 5
+          ];
+
+          let testBoard3 = [
+            [0, 0, 0, 0, 0, 0, 0], // 1 1 1 1 1 1 1 1
+            [0, 0, 0, 0, 0, 0, 0], // 2 2 2 2 2 2 2 2
+            [0, 0, 0, 0, 0, 0, 0], // 3 3 3 3 3 3 3 3
+            [0, 0, 0, 0, 0, 0, 0], // 4 4 4 4 4 4 4 4
+            [0, 0, 0, 0, 0, 0, 0]  // 5 5 5 5 5 5 5 5
+          ];
+
+          let testBoard4 = [
+            [0, 0, 0, 0, 0, 0, 0], // 1 1 1 1 1 1 1 1
+            [0, 0, 0, 0, 0, 0, 0], // 2 2 2 2 2 2 2 2
+            [0, 0, 0, 0, 0, 0, 0], // 3 3 3 3 3 3 3 3
+            [0, 0, 0, 0, 0, 0, 0], // 4 4 4 4 4 4 4 4
+            [0, 0, 0, 0, 0, 0, 0]  // 5 5 5 5 5 5 5 5
+          ];
+
+            if(testBoard1[4][chosenTestCol] != 0 && testBoard1[4][chosenTestCol] == 1) // player 1 has selected this space
             { //handles user clicking on column that is already full
-                console.log("Case 1: confirm that")
+                console.log("Case 1: Confirm that player 1 has chosen a location & it cannot be selected again: PASSED");
+            }
+            else
+            {
+                console.log("Case 1: Confirm that player 1 has chosen a location & it cannot be selected again: FAILED");
             }
 
-            if (currPlayer == 1)
+            if(testBoard2[4][chosenTestCol] != 0 && testBoard2[4][chosenTestCol] == 2) // player 2 has selected this space
+            { //handles user clicking on column that is already full
+                console.log("Case 2: Confirm that player 2 has chosen a location & it cannot be selected again: PASSED");
+            }
+            else
+            {
+                console.log("Case 2: Confirm that player 2 has chosen a location & it cannot be selected again: FAILED");
+            }
+
+            if(currTestPlayer1 == 1)
             {
                  for(let row = 5; row >= 0; row --)
                  {
-                    if(board[row][chosenCol] == 0) 
+                    if(testBoard3[4][chosenTestCol] == 0) 
                     {
-                        board[row][chosenCol] = 1;
+                        testBoard3[4][chosenTestCol] = 1;
+                        console.log("Case 3: Confirm Player 1 has selected a slot: PASSED ");
+                        // console.log(testBoard3);
+
                         break;
                     }
                  }
-
-                currPlayer = 2;
-                //turn++;
-                document.getElementById("colorTurn").innerHTML="Red Turn";
             }
-            else 
+            else
             {
-                 for(let row = 5; row >= 0; row --)
+                console.log("Case 3: Confirm Player 1 has selected a slot: FAILED ");
+            }
+
+            if(currTestPlayer2 == 2)
+            {
+                for(let row = 5; row >= 0; row --)
                  {
-                    if(board[row][chosenCol] == 0) 
+                    if(testBoard4[4][chosenTestCol] == 0) 
                     {
-                        board[row][chosenCol] = 2;
+                        testBoard4[4][chosenTestCol] = 2;
+                        console.log("Case 4: Confirm Player 2 has selected a slot: PASSED ");
+                        // console.log(testBoard4);
+
                         break;
                     }
                  }
-
-                currPlayer = 1;
-                //turn++;
-                document.getElementById("colorTurn").innerHTML="Yellow Turn";
             }
-            var snd = new Audio("chip.mp3");
-		    snd.play();
-            updateBoard();
-            endTurn();
-        }
-        
+            else
+            {
+                console.log("Case 4: Confirm Player 2 has selected a slot: FAILED ");
+            }
     }
 
     function test02_updateBoard()
