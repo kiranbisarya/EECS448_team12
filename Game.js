@@ -1,5 +1,4 @@
 
-
 /**
 	* @description Manages the boards and user interaction during gameplay (chip drop placement and turn switching)
 	* @param rows {number} The number of rows the boards have
@@ -499,6 +498,7 @@
           currPlayer = 1; //1 for red chip player, 2 for yellow chip player
           turn = 1; 
           gameActive = true;
+          document.getElementById("colorTurn").innerHTML="Yellow Turn";
           board = [
             [0, 0, 0, 0, 0, 0, 0], // 0 0 0 0 0 0 0 0
             [0, 0, 0, 0, 0, 0, 0], // 1 1 1 1 1 1 1 1
@@ -545,7 +545,7 @@
                 document.getElementById("fullColumn").innerHTML = "Column " + (chosenCol+1) + " is full. Please choose another column";
             }
 
-            if (currPlayer == 1)
+            else if (currPlayer == 1)
             {
                  for(let row = 5; row >= 0; row --)
                  {
@@ -559,6 +559,7 @@
                 currPlayer = 2;
                 //turn++;
                 document.getElementById("colorTurn").innerHTML="Red Turn";
+                turn++;
             }
             else 
             {
@@ -574,6 +575,7 @@
                 currPlayer = 1;
                 //turn++;
                 document.getElementById("colorTurn").innerHTML="Yellow Turn";
+                turn++;
             }
             var snd = new Audio("chip.mp3");
 		    snd.play();
@@ -791,7 +793,6 @@
     }
     else if(gameOver() == false)
     {
-        turn++;
         if(currPlayer==2)
         {
             document.getElementById("msg").innerHTML="Next up is player 2 for turn number " + turn;

@@ -42,8 +42,9 @@ h1
     top: 95vh;
     left: 50%;
     transform: translate(-50%);
-    border: 1px solid black;
-    width: 10rem;
+    border: 2px solid black;
+    height: 2rem;
+    width: 8rem;
     text-align:center;
     cursor: pointer;
 }
