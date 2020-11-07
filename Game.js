@@ -37,7 +37,7 @@
         //test03_checkHoriz();
 
         console.log("TEST04_CHECKVERT")
-        test04_checkVert();
+        //test04_checkVert();
 
         console.log("TEST05_CHECKDIAGLTR")
         //test05_checkDiagLtR();
@@ -49,7 +49,7 @@
         //test07_checkTie();
 
         console.log("TEST08_GAMEOVER")
-        //test08_gameOver();
+        test08_gameOver();
 
         console.log("TEST09_ENDTURN")
         //test09_endTurn();
@@ -74,7 +74,7 @@
             [0, 0, 0, 0, 0, 0, 0]  // 5 5 5 5 5 5 5 5
           ];
 
-        let testBoard1 = [
+        var testBoard1 = [
             [1, 0, 0, 0, 0, 0, 0], // 1 1 1 1 1 1 1 1
             [0, 0, 0, 0, 0, 0, 0], // 2 2 2 2 2 2 2 2
             [0, 0, 0, 0, 0, 0, 0], // 3 3 3 3 3 3 3 3
@@ -82,7 +82,7 @@
             [0, 0, 0, 0, 0, 0, 0]  // 5 5 5 5 5 5 5 5
           ];
 
-        let testBoard2 = [
+        var testBoard2 = [
             [2, 0, 0, 0, 0, 0, 0], // 1 1 1 1 1 1 1 1
             [0, 0, 0, 0, 0, 0, 0], // 2 2 2 2 2 2 2 2
             [0, 0, 0, 0, 0, 0, 0], // 3 3 3 3 3 3 3 3
@@ -90,7 +90,11 @@
             [0, 0, 0, 0, 0, 0, 0]  // 5 5 5 5 5 5 5 5
           ];
 
-        
+        // let indexCheck = false;
+        // console.log(testBoard0);
+        // console.log(testBoard1);
+        // console.log(testBoard2);
+
         for (let col = 0; col < 7; col++)  //row was originally here, but in our win checks we are accessing col before row (?)
         {
             for (let row = 0; row < 6; row++) 
@@ -112,11 +116,11 @@
             {
                 if (testBoard1[row][col]==1) //1 for yellow
                 { 
-                    console.log("Slot selected by either Player 1: PASSED.")
+                    console.log("Slot selected by Player 1: PASSED.")
                 } 
                 else
                 {
-                    console.log("Slot selected by either Player 1: FAILED.")
+                    console.log("Slot selected by Player 1: FAILED.")
                 }
             }
         }
@@ -125,13 +129,13 @@
         {
             for (let row = 0; row < 6; row++) 
             {
-                if (testBoard2[row][col]==2) //1 for yellow
+                if (testBoard2[row][col]==2) //2 for red
                 { 
-                    console.log("Slot selected by either Player 1: PASSED.")
+                    console.log("Slot selected by Player 2: PASSED.")
                 } 
                 else
                 {
-                    console.log("Slot selected by either Player 1: FAILED.")
+                    console.log("Slot selected by Player 2: FAILED.")
                 }
             }
         }
@@ -306,12 +310,74 @@
 
         function test08_gameOver()
         {
-
+            //We are simulating player 1 winning the game.
+            // 1 = player 1, 2 = player 2
+            function checkHorizWin() {
+                return 1;
+            }
+            function checkVertWin() {
+                return 1;
+            }
+            function checkDLtRWin() {
+                return 1;
+            }
+            function checkDRtLWin() {
+                return 1;
+            }
+             
+            if(checkHorizWin()==1 || checkHorizWin()==2 || checkVertWin()==1 || checkVertWin()==2 || checkDLtRWin()==1 || checkDLtRWin()==2 || 
+            checkDRtLWin()==1 || checkDRtLWin()==2)
+            {
+                console.log("Game Over: PASSED");
+                return true;
+            }
+            else
+            {
+                console.log("Game Over: FAILED");
+                return false;
+            }
         }
 
-        function test09_endTurn()
+        function test09_endTurn() //determines winner
         {
+            function testTie(){
+                return true;
+            }
+            function testgameOver() {
+                return true;
+            }
 
+            let testPlayer2 = 2;
+
+
+            if(testTie() == true)
+            {
+                console.log("Game Tied, Game Ends: PASSED");
+            }
+            else
+            {
+                console.log("Game Tied, Game Ends: FAILED");
+            }
+            
+            else if(testgameOver() == true)
+            {
+                if(testPlayer2==2)
+                {
+
+                }
+                else
+                {
+                }
+            }
+            else if(testgameOver() == false)
+            {
+                if(testPlayer2==2)
+                {
+                }
+                else
+                {
+                }
+            }
         }
 
     testSuite();
