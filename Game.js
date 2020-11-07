@@ -21,7 +21,9 @@
     //let rows = 6;
     let gameActive = true;
 
-
+        /**
+    	* @description Runs all test suites
+        **/
     function testSuite()
     {
         gameActive = true;
@@ -58,7 +60,9 @@
 
 
     }
-
+        /**
+    	* @description Runs test suite 1 dropChip() → tests that chips are being dropped for player 1 & player 2
+        **/
     function test01_dropChip()
     {
         let currTestPlayer1 = 1;
@@ -152,7 +156,9 @@
                 console.log("Case 4: Confirm Player 2 has selected a slot: FAILED ");
             }
     }
-
+        /**
+    	* @description Runs test suite 2 updateBoard() → tests that the selected slots are changing color depending on player 1 or player 2
+        **/
     function test02_updateBoard()
     {
         let testBoard0 = [
@@ -228,7 +234,9 @@
             }
         }
     }
-
+        /**
+    	* @description Runs test suite 3 checkHoriz() → tests that horizontal win logic is sound
+        **/
     function test03_checkHoriz()
     {
         let testBoard = [
@@ -265,7 +273,9 @@
         
         }
     }
-
+        /**
+    	* @description Runs test suite 4 checkVert() → tests that vertical win logic is sound
+        **/
     function test04_checkVert()
     {
         let testBoard = [
@@ -298,7 +308,9 @@
               }
           }
     }
-
+        /**
+    	* @description Runs test suite 5 checkDiagLtR() → tests that diagonal (LtR) logic is sound
+        **/
     function test05_checkDiagLtR()
     {
         let testBoard = [
@@ -331,7 +343,9 @@
             }
         }
     }
-
+        /**
+    	* @description Runs test suite 6 testing checkDiagRtL() → tests that diagonal (RtL) logic is sound
+        **/
         function test06_checkDiagRtL()
         {
             let testBoard = [
@@ -365,7 +379,9 @@
                 }
             }
         }
-
+        /**
+    	* @description Runs test suite 7 testing checkTie() → tests that if a board has a combination where there are no winners, a tie is declared
+        **/
         function test07_checkTie()
         {
             let testBoard = [
@@ -387,7 +403,9 @@
                 return false;
             }
         }
-
+        /**
+    	* @description Runs test suite 8 testing gameOver() → tests gameOver boolean logic
+        **/
         function test08_gameOver()
         {
             //We are simulating player 1 winning the game.
@@ -417,7 +435,9 @@
                 return false;
             }
         }
-
+     /**
+	* @description Runs test suite 9 checking endTurn() → test correctly reports Tie, Win & player Turn information
+    **/
         function test09_endTurn() //determines winner
         {
             function testTie(){
