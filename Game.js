@@ -30,8 +30,8 @@
         // console.log("TEST 01_DROPCHIP")
         //test01_dropChip();
 
-        // console.log("TEST 02_UPDATEBOARD")
-        // test02_updateBoard();
+        console.log("TEST 02_UPDATEBOARD")
+        test02_updateBoard();
 
         console.log("TEST03_CHECKHORIZ")
         test03_checkHoriz();
@@ -131,18 +131,22 @@
             [0, 0, 0, 0, 0, 0, 0], // 4 4 4 4 4 4 4 4
             [2, 0, 0, 0, 0, 0, 0]  // 5 5 5 5 5 5 5 5
           ];
+        
+        //selected test location will be row 4, col 0 to locate player selection location
 
         for (let col = 0; col < 7; col++)  //row was originally here, but in our win checks we are accessing col before row (?)
         {
             for (let row = 0; row < 6; row++) 
             {
-                if (testBoard0[row][col]==0) // 0 for no color
+                if (testBoard0[4][0]==0) 
                 {
-                    console.log("Slot not selected by either Player 1 or Player 2 remains unselected: PASSED.");
+                    // testBoard0[4][0] = 'X';
+                    // console.log(testBoard0);
+                    console.log("Case 1: Board being accessed is empty & successfully updated: PASSED");
                 } 
                 else
                 {
-                    console.log("Slot not selected by either Player 1 or Player 2 remains unselected: FAILED.");
+                    console.log("Case 1: Board accessed is empty & successfully updated: FAILED");
                 }
             }
         }
@@ -151,14 +155,13 @@
         {
             for (let row = 0; row < 6; row++) 
             {
-                if (testBoard1[row][col]==1) //1 for yellow
+                if (testBoard1[4][0]==1) //1 for yellow
                 { 
-                    console.log("Slot selected by Player 1: PASSED.");
-                    return i;
+                    console.log("Case 2: Board accessed by player 1 & successfully updated: PASSED");
                 } 
                 else
                 {
-                    console.log("Slot selected by Player 1: FAILED.");
+                    console.log("Case 2: Board accessed by player 1 & successfully updated: FAILED");
                 }
             }
         }
@@ -167,14 +170,13 @@
         {
             for (let row = 0; row < 6; row++) 
             {
-                if (testBoard2[row][col]==2) //2 for red
+                if (testBoard2[4][0]==2) //2 for red
                 { 
-                    console.log("Slot selected by Player 2: PASSED.");
-                    return i;
-                } 
+                    console.log("Case 3: Board accessed by player 2 & successfully updated: PASSED");
+                }
                 else
                 {
-                    console.log("Slot selected by Player 2: FAILED.");
+                    console.log("Case 3: Board accessed by player 2 & successfully updated: FAILED");
                 }
             }
         }
