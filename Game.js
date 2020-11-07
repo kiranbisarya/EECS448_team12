@@ -27,31 +27,31 @@
         gameActive = true;
         console.log("=== CONNECT4 TEST SUITE ===")
         //contains tests that check each function's ability to correcrl execute a task.
-        console.log("TEST 01_DROPCHIP")
+        // console.log("TEST 01_DROPCHIP")
         //test01_dropChip();
 
-        console.log("TEST 02_UPDATEBOARD")
+        // console.log("TEST 02_UPDATEBOARD")
         // test02_updateBoard();
 
-        console.log("TEST03_CHECKHORIZ")
+        // console.log("TEST03_CHECKHORIZ")
         //test03_checkHoriz();
 
-        console.log("TEST04_CHECKVERT")
+        // console.log("TEST04_CHECKVERT")
         //test04_checkVert();
 
-        console.log("TEST05_CHECKDIAGLTR")
+        // console.log("TEST05_CHECKDIAGLTR")
         //test05_checkDiagLtR();
 
-        console.log("TEST06_CHECKDIAGRTL")
+        // console.log("TEST06_CHECKDIAGRTL")
         //test06_checkDiagRtL();
 
         console.log("TEST07_CHECKTIE")
-        //test07_checkTie();
+        test07_checkTie();
 
         console.log("TEST08_GAMEOVER")
         test08_gameOver();
 
-        console.log("TEST09_ENDTURN")
+        // console.log("TEST09_ENDTURN")
         //test09_endTurn();
 
 
@@ -296,7 +296,7 @@
                 [1, 2, 1, 1, 1, 2, 1]  // 5 5 5 5 5 5 5 5
               ];
 
-            if(board[0][0] != 0 && board[0][1] != 0 && board[0][2] != 0 && board[0][3] != 0 && board[0][4] != 0 && board[0][5] != 0 && board[0][6] != 0) 
+            if(testBoard[0][0] != 0 && testBoard[0][1] != 0 && testBoard[0][2] != 0 && testBoard[0][3] != 0 && testBoard[0][4] != 0 && testBoard[0][5] != 0 && testBoard[0][6] != 0) 
             { 
                 console.log("Tie detected: PASSED");
                 return true;
@@ -328,12 +328,12 @@
             if(checkHorizWin()==1 || checkHorizWin()==2 || checkVertWin()==1 || checkVertWin()==2 || checkDLtRWin()==1 || checkDLtRWin()==2 || 
             checkDRtLWin()==1 || checkDRtLWin()==2)
             {
-                console.log("Game Over: PASSED");
+                console.log("Game Over, detected win: PASSED");
                 return true;
             }
             else
             {
-                console.log("Game Over: FAILED");
+                console.log("Game Over, detected win: FAILED");
                 return false;
             }
         }
@@ -359,7 +359,7 @@
                 console.log("Game Tied, Game Ends: FAILED");
             }
             
-            else if(testgameOver() == true)
+            if(testgameOver() == true)
             {
                 if(testPlayer2==2)
                 {
@@ -369,7 +369,7 @@
                 {
                 }
             }
-            else if(testgameOver() == false)
+            if(testgameOver() == false)
             {
                 if(testPlayer2==2)
                 {
