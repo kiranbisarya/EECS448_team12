@@ -33,17 +33,17 @@
         // console.log("TEST 02_UPDATEBOARD")
         // test02_updateBoard();
 
-        // console.log("TEST03_CHECKHORIZ")
-        //test03_checkHoriz();
+        console.log("TEST03_CHECKHORIZ")
+        test03_checkHoriz();
 
-        // console.log("TEST04_CHECKVERT")
-        //test04_checkVert();
+        console.log("TEST04_CHECKVERT")
+        test04_checkVert();
 
-        // console.log("TEST05_CHECKDIAGLTR")
-        //test05_checkDiagLtR();
+        console.log("TEST05_CHECKDIAGLTR")
+        test05_checkDiagLtR();
 
-        // console.log("TEST06_CHECKDIAGRTL")
-        //test06_checkDiagRtL();
+        console.log("TEST06_CHECKDIAGRTL")
+        test06_checkDiagRtL();
 
         console.log("TEST07_CHECKTIE")
         test07_checkTie();
@@ -59,10 +59,52 @@
 
     }
 
-    // function test01_dropChip()
-    // {
+    function test01_dropChip()
+    {
+        if(gameActive == true)
+        {
+            if(board[0][chosenCol] != 0) 
+            { //handles user clicking on column that is already full
+                console.log("Case 1: confirm that")
+            }
+
+            if (currPlayer == 1)
+            {
+                 for(let row = 5; row >= 0; row --)
+                 {
+                    if(board[row][chosenCol] == 0) 
+                    {
+                        board[row][chosenCol] = 1;
+                        break;
+                    }
+                 }
+
+                currPlayer = 2;
+                //turn++;
+                document.getElementById("colorTurn").innerHTML="Red Turn";
+            }
+            else 
+            {
+                 for(let row = 5; row >= 0; row --)
+                 {
+                    if(board[row][chosenCol] == 0) 
+                    {
+                        board[row][chosenCol] = 2;
+                        break;
+                    }
+                 }
+
+                currPlayer = 1;
+                //turn++;
+                document.getElementById("colorTurn").innerHTML="Yellow Turn";
+            }
+            var snd = new Audio("chip.mp3");
+		    snd.play();
+            updateBoard();
+            endTurn();
+        }
         
-    // }
+    }
 
     function test02_updateBoard()
     {
@@ -90,22 +132,17 @@
             [2, 0, 0, 0, 0, 0, 0]  // 5 5 5 5 5 5 5 5
           ];
 
-        // let indexCheck = false;
-        // console.log(testBoard0);
-        // console.log(testBoard1);
-        // console.log(testBoard2);
-
         for (let col = 0; col < 7; col++)  //row was originally here, but in our win checks we are accessing col before row (?)
         {
             for (let row = 0; row < 6; row++) 
             {
                 if (testBoard0[row][col]==0) // 0 for no color
                 {
-                    console.log("Slot not selected by either Player 1 or Player 2 remains unselected: PASSED.")
+                    console.log("Slot not selected by either Player 1 or Player 2 remains unselected: PASSED.");
                 } 
                 else
                 {
-                    console.log("Slot not selected by either Player 1 or Player 2 remains unselected: FAILED.")
+                    console.log("Slot not selected by either Player 1 or Player 2 remains unselected: FAILED.");
                 }
             }
         }
@@ -114,13 +151,14 @@
         {
             for (let row = 0; row < 6; row++) 
             {
-                if (testBoard1[5][1]==1) //1 for yellow
+                if (testBoard1[row][col]==1) //1 for yellow
                 { 
-                    console.log("Slot selected by Player 1: PASSED.")
+                    console.log("Slot selected by Player 1: PASSED.");
+                    return i;
                 } 
                 else
                 {
-                    console.log("Slot selected by Player 1: FAILED.")
+                    console.log("Slot selected by Player 1: FAILED.");
                 }
             }
         }
@@ -131,11 +169,12 @@
             {
                 if (testBoard2[row][col]==2) //2 for red
                 { 
-                    console.log("Slot selected by Player 2: PASSED.")
+                    console.log("Slot selected by Player 2: PASSED.");
+                    return i;
                 } 
                 else
                 {
-                    console.log("Slot selected by Player 2: FAILED.")
+                    console.log("Slot selected by Player 2: FAILED.");
                 }
             }
         }
@@ -161,11 +200,12 @@
                     {
                         if ((testBoard[row][col+1] == i) && (testBoard[row][col+2] == i) && (testBoard[row][col+3] == i)) 
                         {
-                            console.log("Horizon Win detected: PASSED.");
+                            console.log("Horizon Win detected: PASSED");
+                            return i;
                         }
                         else
                         {
-                            console.log("Horizon Win detected: FAILED.");
+                            console.log("Horizon Win detected: FAILED");
                         }
                         
                     }
@@ -198,7 +238,7 @@
                           if ((testBoard[row+1][col] == i) && (testBoard[row+2][col] == i) && (testBoard[row+3][col] == i)) 
                           {
                                 console.log("Vertical win detected: PASSED");
-                                // return i;
+                                return i;
                           }
                           else
                           {
@@ -213,30 +253,25 @@
     function test05_checkDiagLtR()
     {
         let testBoard = [
-            [1, 0, 0, 0, 0, 0, 0], // 1 1 1 1 1 1 1 1
-            [0, 1, 0, 0, 0, 0, 0], // 2 2 2 2 2 2 2 2
+            [0, 0, 0, 0, 0, 0, 0], // 1 1 1 1 1 1 1 1
+            [0, 0, 0, 1, 0, 0, 0], // 2 2 2 2 2 2 2 2
             [0, 0, 1, 0, 0, 0, 0], // 3 3 3 3 3 3 3 3
-            [0, 0, 0, 1, 0, 0, 0], // 4 4 4 4 4 4 4 4
-            [0, 0, 0, 0, 0, 0, 0]  // 5 5 5 5 5 5 5 5
+            [0, 1, 0, 0, 0, 0, 0], // 4 4 4 4 4 4 4 4
+            [1, 0, 0, 0, 0, 0, 0]  // 5 5 5 5 5 5 5 5
           ];
 
           for (let i=1; i<=2; i++) 
           {
-              for (let col = 0; col < 4; col++) 
+            for (let col = 0; col < 4; col++) 
               {
-                  for (let row = 3; row < 6; row++) 
+                for (let row = 3; row < 6; row++) 
                   {
-                        if (testBoard[row][col] == i) 
+                    if (testBoard[row][col] == i) 
+                    {
+                        if ((testBoard[row-1][col+1] == i) && (testBoard[row-2][col+2] == i) && (testBoard[row-3][col+3] == i)) 
                         {
-                            if ((testBoard[row-1][col+1] == i) && (testBoard[row-2][col+2] == i) && (testBoard[row-3][col+3] == i)) 
-                            {
-                                console.log("Diagonal Left to Right win detected: PASSED");
-                                return i;
-                            }
-                            else
-                            {
-                                console.log("Diagonal Left to Right win detected: FAILED");
-                            }
+                            console.log("Diagonal Left to Right win detected: PASSED");
+                            return i;
                         }
                         else
                         {
@@ -246,6 +281,7 @@
                 }
             }
         }
+    }
 
         function test06_checkDiagRtL()
         {
@@ -276,11 +312,6 @@
                                   
                             }   
                         }
-                        else
-                            {
-                                console.log("Diagonal Right to Left win detected: FAILED");
-                                  
-                            } 
                     }
                 }
             }
