@@ -15,6 +15,7 @@ Using the Agile user story method, we all came together and talked about the est
 11/6 Nina completing all tests except for test02 and test01, 1 hour
 11/7 Nina completed all unit tests, 45 min
 11/7 Katie adding to GitHub and adding comments to code, 30 minutes
+11/8 Katie fixing bugs, 20 minutes
 
 • Use a defect tracking tool to manage software defects in your project (5%) From 11/1 onwards
 11/1 one bug is game not tracking wins in gameOver() function for player one, reported by Katie resolved by Kiran 11/2 by fixing win functions
@@ -22,6 +23,7 @@ Using the Agile user story method, we all came together and talked about the est
 11/1 line 195 bug -- possible issues with checkForVertWin function, reported by Nina resolved by Nina
 11/3 Unit test: test02_updateBoard() -- trying to get all cases of no player selection, player 1 selection and player 2 selection, but only getting no player selection, reported by Nina resolved by Nina
 11/6, Unit test 01 and 02 have “Game.js:74 Uncaught TypeError: Cannot read property '0' of undefined”, reported by Nina resolved by Nina
+11/8, Turn count not correct when a user has won and turn count not reset properly on a board reset, reported by Katie resolved by Katie by restoring turn count code to the correct way it was before with only being updated when the game is not over and being initialized to 0 in board reset func
 
 • Describe how your team integrated code from the team members. Which Integration Strategy do you think your team used? Explain why. (250-350 words – 5%)
 The way we integrated our code was by having we each had our own branches and the main branch on our GitHub repo. We each worked on our own branch of our name with that branch checked out only so that we would not mess up the main branch if we made things worse while trying to make our project. That way, the main branch was always in good working order so we could all work on it at the same time. We only pushed when our code was working well and good progress had been made and we made sure to push with descriptive commit comments on what had been changed. When we were ready to push, we would create a pull request on the repo and have our branch compared with the main branch, and if it was compatible then we would push it onto the main branch. Therefore, because of the two branch aka two group comparison I think this is sandwich integration. I think it’s sandwich integration because the two branches are compared and then after there are no conflicts or the conflicts are fixed, it is then integrated. As stated in the sandwich integration lectures slides, one of the major strengths is all of the major faults will show up and be fixed early because it will not allow the code to be merged if the new branch code is not compatible with the main branch. Additionally, there is indeed fault isolation because GitHub will tell you which section of the code you’re comparing is creating merging issues which is fantastic because then you know what exactly you need to fix before you can push onto the main branch.
