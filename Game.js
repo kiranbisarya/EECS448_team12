@@ -8,6 +8,7 @@
 
     let currPlayer = 1; //1 for red chip player, 2 for yellow chip player
     let turn = 1;
+    let okTurn = 0;
     let board = [
         [0, 0, 0, 0, 0, 0, 0], // 0 0 0 0 0 0 0 0
         [0, 0, 0, 0, 0, 0, 0], // 1 1 1 1 1 1 1 1
@@ -539,10 +540,12 @@
             if(board[0][chosenCol] != 0) 
             { //handles user clicking on column that is already full
                 document.getElementById("fullColumn").innerHTML = "Column " + (chosenCol+1) + " is full. Please choose another column";
+                okTurn = 1;
             }
 
             else if (currPlayer == 1)
             {
+                okTurn = 0;
                  for(let row = 5; row >= 0; row --)
                  {
                     if(board[row][chosenCol] == 0) 
@@ -557,6 +560,7 @@
             }
             else 
             {
+                okTurn = 0;
                  for(let row = 5; row >= 0; row --)
                  {
                     if(board[row][chosenCol] == 0) 
@@ -785,7 +789,10 @@
     }
     else if(gameOver() == false)
     {
-        turn++;
+        if(okTurn == 0)
+        {
+            turn++;
+        }
         if(currPlayer==2)
         {
             document.getElementById("msg").innerHTML="Next up is player 2 for turn number " + turn;
