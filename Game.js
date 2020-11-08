@@ -54,10 +54,6 @@
 
         console.log("TEST09_ENDTURN")
         test09_endTurn();
-
-
-
-
     }
         /**
     	* @description Runs test suite 1 dropChip() → tests that chips are being dropped for player 1 & player 2
@@ -496,7 +492,7 @@
 		snd.play()
         
           currPlayer = 1; //1 for red chip player, 2 for yellow chip player
-          turn = 1; 
+          turn = 0; 
           gameActive = true;
           document.getElementById("colorTurn").innerHTML="Yellow Turn";
           board = [
@@ -557,9 +553,7 @@
                  }
 
                 currPlayer = 2;
-                //turn++;
                 document.getElementById("colorTurn").innerHTML="Red Turn";
-                turn++;
             }
             else 
             {
@@ -573,9 +567,7 @@
                  }
 
                 currPlayer = 1;
-                //turn++;
                 document.getElementById("colorTurn").innerHTML="Yellow Turn";
-                turn++;
             }
             var snd = new Audio("chip.mp3");
 		    snd.play();
@@ -793,6 +785,7 @@
     }
     else if(gameOver() == false)
     {
+        turn++;
         if(currPlayer==2)
         {
             document.getElementById("msg").innerHTML="Next up is player 2 for turn number " + turn;
