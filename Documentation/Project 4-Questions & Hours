@@ -15,7 +15,9 @@ Using the Agile user story method, we all came together and talked about the est
 11/6 Nina completing all tests except for test02 and test01, 1 hour
 11/7 Nina completed all unit tests, 45 min
 11/7 Katie adding to GitHub and adding comments to code, 30 minutes
+11/7 Quchang fixing bugs, 20 min
 11/8 Katie fixing bugs, 30 minutes
+11/8 Quchang editing html and css files, 45 min
 
 • Use a defect tracking tool to manage software defects in your project (5%) From 11/1 onwards
 11/1 one bug is game not tracking wins in gameOver() function for player one, reported by Katie resolved by Kiran 11/2 by fixing win functions
