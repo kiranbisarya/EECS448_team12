@@ -22,9 +22,9 @@ Using the Agile user story method, we all came together and talked about the est
 • Use a defect tracking tool to manage software defects in your project (5%) From 11/1 onwards
 11/1 one bug is game not tracking wins in gameOver() function for player one, reported by Katie resolved by Kiran 11/2 by fixing win functions
 11/1 since gameOver() function not always working, is affecting endTurn() function from working correctly, reported by Katie resolved by Kiran 11/2 by fixing win functions
-11/1 line 195 bug -- possible issues with checkForVertWin function, reported by Nina resolved by Nina
-11/3 Unit test: test02_updateBoard() -- trying to get all cases of no player selection, player 1 selection and player 2 selection, but only getting no player selection, reported by Nina resolved by Nina
-11/6, Unit test 01 and 02 have “Game.js:74 Uncaught TypeError: Cannot read property '0' of undefined”, reported by Nina resolved by Nina
+11/1 line 195 bug -- possible issues with checkForVertWin function, reported by Nina resolved by Nina: placed 4 chips in a vertical position instead of 5, also fixed the text to check for e specific win at a specific location instead of running the whole board.
+11/3 Unit test: test02_updateBoard() -- trying to get all cases of no player selection, player 1 selection and player 2 selection, but only getting no player selection, reported by Nina resolved by Nina: placed test row & col in the proper place the tests would expect them in.
+11/6, Unit test 01 and 02 have “Game.js:74 Uncaught TypeError: Cannot read property '0' of undefined”, reported by Nina -- resolved by Nina: returning the value that is supposed to be marked for player 1 or 2 and making sure that the test points were in the proper rows & cols.
 11/8, Turn count not correct when a user has won and turn count not reset properly on a board reset, reported by Katie resolved by Katie by restoring turn count code to the correct way it was before with only being updated when the game is not over and being initialized to 0 in board reset func, added variable to only allow turn count to increase when column not full
 
 • Describe how your team integrated code from the team members. Which Integration Strategy do you think your team used? Explain why. (250-350 words – 5%)
